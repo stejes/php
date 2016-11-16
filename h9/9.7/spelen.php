@@ -20,13 +20,19 @@ if(isset($_GET["kolomnummer"])){
         }
     }
     
-    $status = $_SESSION["kleur"]%2+1;
+    $status = $_SESSION["kleur"];
     
     if($steekRij > 0){
         $slot = new Slot($steekRij, $kolomnummer, $status);
         $lijst->updateSlot($slot);
-        $_SESSION["kleur"]++;
+        //$_SESSION["kleur"]++;
     }
+}
+
+if(isset($_GET["actie"]) && $_GET["actie"] == "reset"){
+   
+    $lijst = new SlotLijst();
+    $lijst->reset();
 }
 
 
@@ -75,7 +81,8 @@ if(isset($_GET["kleur"])){
         }
 
         ?>
-        <a href='kleurKiezen.php?actie=reset'>Reset het spel</a>
+        <h3><a href='spelen.php'>Vernieuw bord</a></h3><br><br>
+        <a href='spelen.php?actie=reset'>Reset het spel</a>
         
     </body>
 </html>
