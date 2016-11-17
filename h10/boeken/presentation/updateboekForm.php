@@ -7,8 +7,16 @@
     </head>
     <body>
         <h1>Boek bijwerken</h1>
-        <form method="post" action="updateboek.php?action=process&id=
-              <?php print($boek->getId()); ?>">
+        
+        <?php
+        if (isset($error) && $error == "titelbestaat") {
+            ?>
+            <p style="color: red">Titel bestaat al!</p>
+            <?php
+        }
+        ?>
+            
+        <form method="post" action="updateboek.php?action=process&id=<?php print($boek->getId()); ?>">
             <table>
                 <tr>
                     <td>Titel:</td>
@@ -30,7 +38,7 @@
                                 }
                                 ?>
                                 <option value="<?php print($genre->getId()); ?>"<?php print($selWaarde); ?>>
-                                        <?php print($genre->getGenreNaam()); ?>
+                                    <?php print($genre->getGenreNaam()); ?>
                                 </option>
                                 <?php
                             }
