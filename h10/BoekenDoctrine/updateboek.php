@@ -6,6 +6,7 @@ require_once("business/BoekService.php");
 require_once("exceptions/TitelBestaatException.php");*/
 use VDAB\MijnProject\Business\BoekService;
 use VDAB\MijnProject\Business\GenreService;
+use VDAB\MijnProject\Exceptions\TitelBestaatException;
 require_once 'bootstrap.php';
 if (isset($_GET["action"]) && $_GET["action"] == "process") {
     try {
